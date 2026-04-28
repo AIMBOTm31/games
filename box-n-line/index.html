@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box & Line – Multiplayer Dots & Boxes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="wrapper">
+  <h1>🔲 Box & Line</h1>
+
+  <!-- Setup Screen -->
+  <div id="setup">
+    <label>
+      Players:
+      <input type="number" id="playerCount" min="2" max="6" value="2">
+    </label>
+    <div id="playerNamesContainer"></div>
+    <label>
+      Grid size (dots per side):
+      <input type="number" id="gridSize" min="2" max="20" value="10">
+    </label>
+    <button id="startBtn">Start Game</button>
+  </div>
+
+  <!-- Game UI -->
+  <div id="gameUI" class="hidden">
+    <div class="info-panel">
+      <div id="turnIndicator"></div>
+      <ul id="scoreList"></ul>
+    </div>
+    <div class="buttons-row">
+      <button id="undoBtn">↩ Undo</button>
+      <button id="homeBtn">🏠 Home</button>
+    </div>
+  </div>
+
+  <canvas id="gameCanvas" class="hidden"></canvas>
+</div>
+
+<!-- Game Over Overlay -->
+<div id="overlay" class="hidden">
+  <div class="overlay-content">
+    <h2>🎉 Game Over!</h2>
+    <ol id="resultsList"></ol>
+    <button id="restartBtn">Restart</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

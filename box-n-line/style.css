@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #2c3e50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #ecf0f1;
+}
+
+#wrapper {
+  background: #34495e;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  text-align: center;
+  max-width: 650px;
+  width: 95%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#setup {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.player-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.color-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid white;
+  display: inline-block;
+}
+
+input, select, button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+}
+
+button {
+  background: #e67e22;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #d35400;
+}
+
+#gameUI {
+  margin: 10px 0;
+  text-align: left;
+  background: rgba(0,0,0,0.2);
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+#turnIndicator {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#scoreList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#scoreList li {
+  margin: 2px 0;
+}
+
+.buttons-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+#gameCanvas {
+  background: #ffffff;
+  border-radius: 8px;
+  touch-action: none;
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.overlay-content {
+  background: white;
+  color: #2c3e50;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  min-width: 300px;
+}
+
+.overlay-content h2 {
+  margin-bottom: 20px;
+}
+
+.overlay-content ol {
+  list-style: none;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.overlay-content button {
+  margin-top: 10px;
+}
