@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Box & Line – Multiplayer Dots & Boxes</title>
+  <title>Box & Line – Dots & Boxes</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,15 +12,44 @@
 
   <!-- Setup Screen -->
   <div id="setup">
+    <!-- Player Count Stepper -->
     <label>
       Players:
-      <input type="number" id="playerCount" min="2" max="6" value="2">
+      <div class="stepper-wrapper">
+        <button type="button" id="decPlayersBtn" class="stepper-btn">−</button>
+        <input type="number" id="playerCount" min="2" max="6" value="2" readonly>
+        <button type="button" id="incPlayersBtn" class="stepper-btn">+</button>
+      </div>
     </label>
+
+    <!-- Global Bot Setting -->
+    <div class="global-bot-setting">
+      <label class="checkbox-label">
+        <input type="checkbox" id="enableBot" checked>
+        <span>Add Bot 🤖</span>
+      </label>
+      
+      <div id="botDifficultyWrapper">
+        <label>
+          Bot Difficulty:
+          <select id="botDifficulty">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <!-- Player Names List -->
     <div id="playerNamesContainer"></div>
+
+    <!-- Grid Size Tap Trigger -->
     <label>
       Grid size (dots per side):
-      <input type="number" id="gridSize" min="2" max="20" value="10">
+      <input type="text" id="gridSize" value="6 x 6" readonly class="grid-trigger">
     </label>
+
     <button id="startBtn">Start Game</button>
   </div>
 
@@ -39,14 +68,34 @@
   <canvas id="gameCanvas" class="hidden"></canvas>
 </div>
 
-<!-- Game Over Overlay -->
-<div id="overlay" class="hidden">
-  <div class="overlay-content">
-    <h2>🎉 Game Over!</h2>
-    <ol id="resultsList"></ol>
-    <button id="restartBtn">Restart</button>
+<!-- Grid Selection Modal Popup -->
+<div id="gridModal" class="hidden">
+  <div class="modal-content">
+    <h3>Select Grid Size</h3>
+    <div id="gridGridOptions"></div>
+    <button type="button" id="closeGridModalBtn">Cancel</button>
   </div>
 </div>
+
+<!-- Game Over Overlay -->
+<!-- Game Over Overlay Modal -->
+<div id="overlay" class="hidden">
+  <div class="overlay-content">
+    <button type="button" id="closeOverlayBtn" class="close-icon-btn" aria-label="Close modal">✕</button>
+    
+    <div class="modal-header">
+      <div class="trophy-icon">🏆</div>
+      <h2>Game Over</h2>
+    </div>
+
+    <ol id="resultsList"></ol>
+
+    <div class="modal-actions">
+      <button id="restartBtn">Play Again</button>
+    </div>
+  </div>
+</div>
+
 
 <script src="script.js"></script>
 </body>
